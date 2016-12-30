@@ -1,13 +1,43 @@
 var express = require("express");
-var bodyparser = require("body-parser");
+var bodyParser = require("body-parser");
+var cookieParser = require('express-session');
+var passport = require("passport");
+
+var config = require("./config");
+
+var app = express();
+
+// require('./auth.js')(app, passport);
+var routes = require('./routes');
+const PORT = 3050;
+
+// app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended:false}));
+console.log(bodyParser.json);
+app.use(bodyParser.json());
+
+app.use(express.static(__dirname + '/../client'));
+
+// routes.init(app);
+routes.errorHandler(app);
+
+
+// app.use(session({
+//     secret: "jaga-me-secret",
+//     resave: false,
+//     saveUninitialized: true
+//
+// }));
+//
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 
 
-var app = new express();
-
-app.use()
 
 
-
-app.listen()
+app.listen(PORT, function(){
+    console.info("Web Server started on port 3050");
+    console.info(__dirname);
+});

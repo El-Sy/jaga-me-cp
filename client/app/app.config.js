@@ -1,94 +1,125 @@
 (function(){
     angular
         .module("jagameCP")
-        .config("jagameCPConfig",jagameCPConfig);
+        .config(jagameCPConfig);
 
     jagameCPConfig.$inject = ["$stateProvider","$urlRouterProvider"];
 
     function jagameCPConfig($stateProvider,$urlRouterProvider){
+
         $stateProvider
             .state('login',{
                 url:'/login',
                 views:{
                     "nav":{
-                        templateUrl:"./home/navigation.html"
+                        templateUrl:"app/home/navigation.html"
                     },
                     "content":{
-                        templateUrl:""
+                        templateUrl:"app/login/login.html"
                     }
 
-                }
+                },
+                controller : 'loginCtrl',
+                controllerAs : 'ctrl'
 
             })
             .state('home',{
-                url:'',
+                url:'/home',
                 views:{
                     "nav":{
-                        templateUrl:"./home/navigation.html"
+                        templateUrl:"app/home/navigation.html"
 
                     }
 
                     ,
                     "content":{
-                        templateUrl:""
+                        templateUrl:"app/home/welcome.html"
                     }
 
-                }
+                },
+                controller : 'homeCtrl',
+                controllerAs : 'ctrl'
 
             })
             .state('appointments',{
-                url:'',
+                url:'/appointments',
                 views:{
                     "nav":{
-                        templateUrl:"./home/navigation.html"
+                        templateUrl:"app/home/navigation.html"
                     },
                     "content":{
-                        templateUrl:""
+                        templateUrl:"app/appointments/appointments.html"
                     }
 
-                }
+                },
+                controller : 'apptCtrl',
+                controllerAs : 'ctrl'
 
             })
             .state('patient',{
-                url:'',
+                url:'/patient',
                 views:{
                     "nav":{
-                        templateUrl:"./home/navigation.html"
+                        templateUrl:"app/home/navigation.html"
                     },
                     "content":{
-                        templateUrl:""
+                        templateUrl:"app/patient/patient.html"
                     }
 
-                }
+                },
+                controller : 'patientCtrl',
+                controllerAs : 'ctrl'
 
             })
             .state('payments',{
-                url:'',
+                url:'/payments',
                 views:{
                     "nav":{
-                        templateUrl:"./home/navigation.html"
+                        templateUrl:"app/home/navigation.html"
                     },
                     "content":{
-                        templateUrl:""
+                        templateUrl:"app/payments/payments.html"
 
                         }
-                    }
+                    },
+                controller : 'paymentsCtrl',
+                controllerAs : 'ctrl'
 
             })
 
             .state('user',{
-                url:'',
+                url:'/user',
                 views:{
                     "nav":{
-                        templateUrl:"./home/navigation.html"
+                        templateUrl:"app/home/navigation.html"
                     },
                     "content":{
-                        templateUrl:""
+                        templateUrl:"app/user/user.html"
                     }
 
-                }
+                },
+                controller : 'userCtrl',
+                controllerAs : 'userCtrl'
 
             })
+
+    .state('signup',{
+            url:'/register',
+            views:{
+                "nav":{
+                    templateUrl:"app/home/navigation.html"
+                },
+                "content":{
+                    templateUrl:"app/login/register.html"
+                }
+
+            },
+            controller : 'registerCtrl',
+            controllerAs : 'registerCtrl'
+
+        });
+
+        $urlRouterProvider.otherwise("/home");
     }
 
 

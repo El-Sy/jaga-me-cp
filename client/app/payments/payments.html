@@ -1,0 +1,22 @@
+<div ng-controller="paymentCtrl as ctrl">
+<table class="table table-hover">
+    <thead>
+    <th>transaction ID</th>
+    <th>Appointment</th>
+    <th>Payment mode</th>
+    <th>Date</th>
+
+    </thead>
+    <tbody>
+    <tr ng-repeat="payment in ctrl.payments">
+        <td>{{payment.transactionID}}</td>
+        <td>{{payment.title}}</td>
+        <td>{{payment.mode}}</td>
+        <td>{{payment.date}}</td>
+    </tr>
+
+    </tbody>
+
+
+</table>
+</div>
