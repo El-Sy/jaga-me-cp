@@ -99,7 +99,7 @@
 
                 },
                 controller : 'userCtrl',
-                controllerAs : 'userCtrl'
+                controllerAs : 'ctrl'
 
             })
 

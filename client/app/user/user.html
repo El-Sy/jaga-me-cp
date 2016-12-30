@@ -1,0 +1,60 @@
+<div class="container" ng-controller="userCtrl as ctrl">
+
+            <!-- Profile -->
+
+            <form name="userForm" ng-submit="ctrl.save()" novalidate autocomplete="off">
+
+                <div class="row form-group" ng-hide="ctrl.isEditorOn">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Username: </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.username}}</div>
+                </div>
+
+                <div class="row form-group" ng-hide="ctrl.isEditorOn">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Email: </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.email}}</div>
+                </div>
+
+                <div class="row form-group" ng-hide="ctrl.isEditorOn">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Contact number: </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.mobile}}</div>
+                </div>
+
+
+                <div class="row form-group" ng-show="ctrl.isEditorOn">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Username: </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.username}}</div>
+                </div>
+
+                <div class="row form-group" ng-show="ctrl.isEditorOn">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Email: </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">
+                        <input type="email" class="form-control"
+                               ng-model="ctrl.user.email"
+                               placeholder="Email" name="email" required></div>
+                </div>
+
+                <div class="row form-group" ng-show="ctrl.isEditorOn">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Contact number: </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">
+                        <input type="text" class="form-control"
+                               ng-model="ctrl.user.mobile"
+                               placeholder="Mobile number"
+                               name="mobile" required></div>
+                </div>
+
+
+
+
+
+                <div class="row form-group text-right">
+                    <br>
+                    <button type="button" class="btn btn-link btn-sm"
+                            ng-click="ctrl.toggleEditor()">Edit</button>
+                    <button type="button" class="btn btn-success"
+                            ng-click="ctrl.save()">Save</button>
+                </div>
+
+
+            </form>
+
+</div>
