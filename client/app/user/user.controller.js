@@ -10,7 +10,8 @@
             name:"Tom Gareth",
             email:"tom.gareth@gmail.com",
             mobile:"8775172",
-            residence: "Blk 77 Chua Chu Kang Road #45-809 S630987"
+            residence: "Blk 77 Chua Chu Kang Road #45-809 S630987",
+            pmethods: "VISA"
         };
 
         vm.toggleEditor = toggleEditor;

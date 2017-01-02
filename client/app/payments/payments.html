@@ -1,5 +1,9 @@
 <div ng-controller="paymentCtrl as ctrl">
 
+    <br>
+    <p class="pP text-center">Payments</p>
+    <br>
+
 
     <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
         <!--<div class="modal-dialog" role="document">-->
@@ -42,16 +46,16 @@
 
 <table class="table table-hover">
     <thead>
-    <th>transaction ID</th>
-    <th>Appointment</th>
-    <th>Payment mode</th>
-    <th>Date</th>
+    <th class="data-date">transaction ID</th>
+    <th class="text-center">Appointment</th>
+    <th class="data-date">Payment mode</th>
+    <th class="data-date">Date</th>
 
     </thead>
     <tbody>
     <tr data-toggle="modal" data-target="#myModal" ng-repeat="payment in ctrl.payments">
         <td>{{payment.transactionID}}</td>
-        <td>{{payment.title}}</td>
+        <td class="text-center">{{payment.title}}</td>
         <td>{{payment.mode}}</td>
         <td>{{payment.date}}</td>
     </tr>
