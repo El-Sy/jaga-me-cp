@@ -1,60 +1,85 @@
-<div class="container" ng-controller="userCtrl as ctrl">
-
-            <!-- Profile -->
-
-            <form name="userForm" ng-submit="ctrl.save()" novalidate autocomplete="off">
-
-                <div class="row form-group" ng-hide="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Username: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.username}}</div>
-                </div>
-
-                <div class="row form-group" ng-hide="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Email: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.email}}</div>
-                </div>
-
-                <div class="row form-group" ng-hide="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Contact number: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.mobile}}</div>
-                </div>
+<div class="container col-sm-10 col-md-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+     ng-controller="userCtrl as ctrl">
 
 
-                <div class="row form-group" ng-show="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Username: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.username}}</div>
-                </div>
+    <div ng-hide="ctrl.isEditorOn">
+        <br>
+        <p class="pP text-center">Customer Particulars</p>
+        <br>
+        <table class="table table-responsive">
+            <thead>
+            <th class="data-labels"></th>
+            <th class="data-details"></th>
+            </thead>
+            <tbody>
 
-                <div class="row form-group" ng-show="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Email: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">
-                        <input type="email" class="form-control"
-                               ng-model="ctrl.user.email"
-                               placeholder="Email" name="email" required></div>
-                </div>
+            <tr>
+                <td class="text-center"><b>Name</b></td>
+                <td class="text-justify">{{ctrl.user.name}}</td>
+            </tr>
 
-                <div class="row form-group" ng-show="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Contact number: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">
-                        <input type="text" class="form-control"
-                               ng-model="ctrl.user.mobile"
-                               placeholder="Mobile number"
-                               name="mobile" required></div>
-                </div>
+            <tr>
+                <td class="text-center"><b>Email</b></td>
+                <td class="text-justify">{{ctrl.user.email}}</td>
+            </tr>
 
+            <tr>
+                <td class="text-center"><b>Contact</b></td>
+                <td class="text-justify">{{ctrl.user.mobile}}</td>
+            </tr>
 
-
-
-
-                <div class="row form-group text-right">
-                    <br>
-                    <button type="button" class="btn btn-link btn-sm"
-                            ng-click="ctrl.toggleEditor()">Edit</button>
-                    <button type="button" class="btn btn-success"
-                            ng-click="ctrl.save()">Save</button>
-                </div>
+            <tr>
+                <td class="text-center"><b>Residence</b></td>
+                <td class="text-justify">{{ctrl.user.residence}}</td>
+            </tr>
 
 
-            </form>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Profile -->
+
+
+    <!-- Profile -->
+
+    <form name="userForm" ng-submit="ctrl.save()" novalidate autocomplete="off">
+
+
+        <div class="row form-group" ng-show="ctrl.isEditorOn">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Username:</div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.user.name}}</div>
+        </div>
+
+        <div class="row form-group" ng-show="ctrl.isEditorOn">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Email:</div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">
+                <input type="email" class="form-control"
+                       ng-model="ctrl.user.email"
+                       placeholder="Email" name="email" required></div>
+        </div>
+
+        <div class="row form-group" ng-show="ctrl.isEditorOn">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Contact number:</div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">
+                <input type="text" class="form-control"
+                       ng-model="ctrl.user.mobile"
+                       placeholder="Mobile number"
+                       name="mobile" required></div>
+        </div>
+
+
+        <div class="row form-group text-right">
+            <br>
+            <button type="button" class="btn btn-link btn-sm"
+                    ng-click="ctrl.toggleEditor()">Edit
+            </button>
+            <button type="button" class="btn btn-success"
+                    ng-click="ctrl.save()">Save
+            </button>
+        </div>
+
+
+    </form>
 
 </div>

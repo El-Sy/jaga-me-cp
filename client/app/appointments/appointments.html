@@ -1,17 +1,37 @@
 <div ng-controller="apptCtrl as ctrl">
 
-<table class="table table-hover">
-    <thead>
-    <th>Date</th>
-    <th>Appointment</th>
-    </thead>
-    <tbody>
-    <tr ng-repeat="appt in ctrl.appts"><td>{{appt.date}}</td><td>{{appt.title}}</td>
-    </tr>
+    <br>
+    <p class="pP text-center">Appointments</p>
+    <br>
 
-    </tbody>
+    <script type="text/ng-template" id="apptModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">{{date}} {{title}}</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+
+            <b>Report:</b> {{report}}
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
+        </div>
+    </script>
+
+    <table class="table table-hover">
+        <thead>
+        <th>Date</th>
+        <th>Appointment</th>
+        </thead>
+        <tbody>
+        <tr ng-click="ctrl.open(appt)" ng-repeat="appt in ctrl.appts track by $index">
+            <td>{{appt.date}}</td>
+            <td>{{appt.title}}</td>
+        </tr>
+
+        </tbody>
 
 
-</table>
+    </table>
 
 </div>

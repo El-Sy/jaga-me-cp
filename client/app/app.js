@@ -1,5 +1,5 @@
 (function(){
     angular
-        .module("jagameCP", ["ui.router", "ngFlash"]);
+        .module("jagameCP", ["ui.router", "ngFlash","ngAnimate", "ngTouch", "ui.bootstrap", 'angularModalService']);
 
 })();

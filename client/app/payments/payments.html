@@ -1,4 +1,45 @@
 <div ng-controller="paymentCtrl as ctrl">
+
+
+    <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+        <!--<div class="modal-dialog" role="document">-->
+            <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <!--<h4 class="modal-title" id="myModalLabel">Appointment: {{index[0].payments.title}}</h4>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                    <!--Date: {{index[0].payments.date}}-->
+                    <!--<br>-->
+                    <!--Clinical Procedures: {{index.payments.description}}-->
+                    <!--<br>-->
+                    <!--Remarks: {{index.payments.remarks}}-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <script type="text/ng-template" id="apptModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">{{title}}</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            Date: {{index[0].payments.date}}
+            <br>
+            Clinical Procedures: {{index.payments.description}}
+            <br>
+            Remarks: {{index.payments.remarks}}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
+        </div>
+    </script>
+
+
 <table class="table table-hover">
     <thead>
     <th>transaction ID</th>
@@ -8,7 +49,7 @@
 
     </thead>
     <tbody>
-    <tr ng-repeat="payment in ctrl.payments">
+    <tr data-toggle="modal" data-target="#myModal" ng-repeat="payment in ctrl.payments">
         <td>{{payment.transactionID}}</td>
         <td>{{payment.title}}</td>
         <td>{{payment.mode}}</td>
@@ -16,6 +57,8 @@
     </tr>
 
     </tbody>
+
+
 
 
 </table>

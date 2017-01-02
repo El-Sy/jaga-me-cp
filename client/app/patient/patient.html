@@ -1,33 +1,108 @@
-
-        <div ng-controller="patientCtrl as ctrl">
-
-            <!-- Profile -->
-
-            <form name="profileForm" ng-submit="ctrl.save()" novalidate autocomplete="off">
-
-                <div class="row form-group" ng-hide="ctrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Name: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.patient.name}}</div>
-                </div>
+<div ng-controller="patientCtrl as ctrl" class="container col-sm-10 col-md-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 
 
+<div ng-hide="ctrl.isEditorOn" >
+    <p class="pP text-center">Patient Particulars</p>
+    <table class="table table-responsive">
+        <thead>
+        <th class="data-labels"></th>
+        <th class="data-details"></th>
+        </thead>
+        <tbody>
 
-                <div class="row form-group" ng-show="profileCtrl.isEditorOn">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">Name: </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-left">{{ctrl.patient.name}}</div>
-                </div>
+        <tr>
+            <td class="text-center"><b>Name</b></td>
+            <td class="text-justify">{{ctrl.patient.personal.name}}</td>
+        </tr>
+
+        <tr>
+            <td class="text-center"><b>Age</b></td>
+            <td class="text-justify">{{ctrl.patient.personal.age}}</td>
+        </tr>
+
+        <tr>
+            <td class="text-center"><b>Gender</b></td>
+            <td class="text-justify">{{ctrl.patient.personal.gender}}</td>
+        </tr>
+
+        <tr>
+            <td class="text-center"><b>Residence</b></td>
+            <td class="text-justify">{{ctrl.patient.personal.residence}}</td>
+        </tr>
 
 
-                <div class="row form-group text-right">
-                    <br>
-                    <button type="button" class="btn btn-link btn-sm"
-                            ng-click="ctrl.toggleEditor()">Edit</button>
-                    <button type="button" class="btn btn-success"
-                            ng-click="ctrl.save()">Save</button>
-                </div>
 
 
-            </form>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <br>
+    <p class="pP text-center">Medical Details</p>
+    <br>
+
+    <table class="table table-responsive">
+        <thead>
+        <th class="data-label"></th>
+        <th class="data-details"></th>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td class="text-center"><b>Diagnosis</b></td>
+            <td class="text-justify">{{ctrl.patient.medical.diagnosis}}</td>
+        </tr>
+
+        <tr>
+            <td class="text-center"><b>Consumables</b></td>
+            <td class="text-justify">
+                <ul ng-repeat="consumable in ctrl.patient.medical.consumables">
+                    <li >{{consumable}}</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="text-center"><b>Provider</b></td>
+            <td class="text-justify">{{ctrl.patient.medical.provider}}</td>
+        </tr>
 
 
+        </tbody>
+    </table>
+</div>
+    <!-- Profile -->
+
+
+    <div>
+    <form name="profileForm" ng-submit="ctrl.save()" novalidate autocomplete="off">
+        <div class="row form-group text-center">
+
+            <div class="row form-group" ng-show="ctrl.isEditorOn">
+                <b>Name :  </b>{{ctrl.patient.personal_details.name}}
+            </div>
+
+            <div class="row form-group" ng-show="ctrl.isEditorOn">
+                <b>Age :  </b>
+                {{ctrl.patient.personal_details.age}}
+            </div>
+
+
+            <div class="row form-group text-right">
+                <br>
+                <button type="button" class="btn btn-link btn-sm"
+                        ng-click="ctrl.toggleEditor()">Edit
+                </button>
+                <button type="button" class="btn btn-success"
+                        ng-click="ctrl.save()">Save
+                </button>
+            </div>
         </div>
+
+
+    </form>
+        </div>
+
+
+</div>
