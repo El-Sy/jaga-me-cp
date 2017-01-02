@@ -21,12 +21,14 @@
     <table class="table table-hover">
         <thead>
         <th class="data-date">Date</th>
-        <th class="data-main">Appointment</th>
+        <th class="data-main text-center">Appointment</th>
+        <th class="data-date">Appointment ID</th>
         </thead>
         <tbody>
         <tr ng-click="ctrl.open(appt)" ng-repeat="appt in ctrl.appts track by $index">
             <td>{{appt.date}}</td>
-            <td>{{appt.title}}</td>
+            <td class="text-center">{{appt.title}}</td>
+            <td>{{appt.id}}</td>
         </tr>
 
         </tbody>

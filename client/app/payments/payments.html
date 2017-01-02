@@ -47,6 +47,7 @@
 <table class="table table-hover">
     <thead>
     <th class="data-date">Transaction ID</th>
+    <th class="data-date">Appointment ID</th>
     <th class="text-center">Appointment</th>
     <th class="data-date">Payment mode</th>
     <th class="data-date">Date</th>
@@ -55,6 +56,7 @@
     <tbody>
     <tr ng-click="ctrl.open(payment)" ng-repeat="payment in ctrl.payments track by $index">
         <td>{{payment.transactionID}}</td>
+        <td>{{payment.appointmentID}}</td>
         <td class="text-center">{{payment.title}}</td>
         <td>{{payment.mode}}</td>
         <td>{{payment.date}}</td>
