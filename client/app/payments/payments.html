@@ -27,16 +27,16 @@
         <!--</div>-->
     <!--</div>-->
 
-    <script type="text/ng-template" id="apptModalContent.html">
+    <script type="text/ng-template" id="paymentModalContent.html">
         <div class="modal-header">
             <h3 class="modal-title" id="modal-title">{{title}}</h3>
         </div>
         <div class="modal-body" id="modal-body">
-            Date: {{index[0].payments.date}}
+            Date: {{date}}
             <br>
-            Clinical Procedures: {{index.payments.description}}
+            Clinical Procedures: {{description}}
             <br>
-            Remarks: {{index.payments.remarks}}
+            Remarks: {{remarks}}
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
@@ -46,14 +46,14 @@
 
 <table class="table table-hover">
     <thead>
-    <th class="data-date">transaction ID</th>
+    <th class="data-date">Transaction ID</th>
     <th class="text-center">Appointment</th>
     <th class="data-date">Payment mode</th>
     <th class="data-date">Date</th>
 
     </thead>
     <tbody>
-    <tr data-toggle="modal" data-target="#myModal" ng-repeat="payment in ctrl.payments">
+    <tr ng-click="ctrl.open(payment)" ng-repeat="payment in ctrl.payments track by $index">
         <td>{{payment.transactionID}}</td>
         <td class="text-center">{{payment.title}}</td>
         <td>{{payment.mode}}</td>

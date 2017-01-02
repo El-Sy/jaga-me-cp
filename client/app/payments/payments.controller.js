@@ -3,9 +3,9 @@
         .module("jagameCP")
         .controller("paymentCtrl", paymentCtrl);
 
-    // paymentCtrl.$inject = [];
+    paymentCtrl.$inject = ["$uibModal", "$log", "$document"];
 
-    function paymentCtrl() {
+    function paymentCtrl($uibModal, $log, $document) {
         var vm = this;
         vm.payments = [];
 
@@ -49,7 +49,8 @@
             });
 
             modalInstance.title = res.title;
-            modalInstance.report = res.report;
+            modalInstance.date = res.date;
+            modalInstance.mode = res.mode;
 
             // modalInstance.result.then(function (selectedItem) {
             //     vm.selected = selectedItem;
@@ -60,5 +61,25 @@
 
 
     }
+
+})();
+
+(function(){
+    angular
+        .module('jagameCP')
+        .controller('paymentModalInstanceCtrl', function ($uibModalInstance, $scope) {
+            var vm = this;
+
+            $scope.title = $uibModalInstance.title;
+            $scope.mode = $uibModalInstance.mode;
+            $scope.date = $uibModalInstance.date;
+
+
+
+            vm.ok = function () {
+                $uibModalInstance.close('');
+            };
+
+        });
 
 })();
