@@ -119,7 +119,7 @@
 
         });
 
-        $urlRouterProvider.otherwise("/home");
+        $urlRouterProvider.otherwise("/login");
     }
 
 

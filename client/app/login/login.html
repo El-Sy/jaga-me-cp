@@ -6,12 +6,20 @@
         <flash-message
                 duration="5000"
                 show-close="true"
-                on-dismiss="mycallBack(flash)"></flash-message>
+                on-dismiss="mycallBack(flash)">
+
+        </flash-message>
         <form ng-submit="ctrl.login()" novalidate autocomplete="off">
+
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" name="username" id="username" class="form-control" ng-model="ctrl.user.username" required>
+                <input type="text"
+                       name="username"
+                       id="username"
+                       class="form-control"
+                       ng-model="ctrl.user.username" required>
             </div>
+
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" id="password"

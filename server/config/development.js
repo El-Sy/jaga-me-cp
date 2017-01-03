@@ -6,8 +6,8 @@ module.exports = {
         username: 'root',
         password: 'WBHyde92',
         database: 'jagamecp'
-    }
+    },
 
-    // seed: true
+    seed: true
 
 };

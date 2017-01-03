@@ -37,13 +37,15 @@
                             result: true,
                             userID: res.data.userID
                         };
-                        // callback(user);
                         callback(user);
                     }else{
                         user = false;
                         callback(user);
                     }
-                });
+                })
+                .catch(function(err){
+
+                })
         }
 
         function login(userProfile){

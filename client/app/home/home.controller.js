@@ -3,17 +3,19 @@
         .module("jagameCP")
         .controller("homeCtrl",homeCtrl);
 
-    homeCtrl.$inject = ["$q"/*, "AuthFactory"*/];
+    homeCtrl.$inject = ["$q", "AuthFactory"];
 
-    function homeCtrl($q/*, AuthFactory*/){
+    function homeCtrl($q, AuthFactory){
         var vm =this;
+        vm.isUserLogon = false;
 
-        // AuthFactory.getUserStatus(function(result){
-        //     console.log(JSON.stringify(result));
-        //     vm.isUserLogon = result;
-        // });
+        AuthFactory
+            .getUserStatus(function(result){
+            console.log("at homeCtrl" + JSON.stringify(result));
+            vm.isUserLogon = result;
+        });
 
-        vm.isUserLogon = true;
+
 
     }
 

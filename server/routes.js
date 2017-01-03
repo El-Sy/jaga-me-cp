@@ -5,16 +5,50 @@ var PatientController = require("./api/patient/patient.controller");
 
 const CLIENT_FOLDER = path.join(__dirname + '/../client');
 
-module.exports = {
-    init:configureRoutes,
-    errorHandler: errorHandler
+module.exports = function(app,passport){
+
+    app.post("/login", passport.authenticate("local",{
+    successRedirect:"/#!/home",
+    failureRedirect:"/#!/login",
+    failureFlash : true
+
+}));
+
+    app.get("/status/user", function(req, res){
+        var status = "";
+        if(req.user){
+            status = req.user.username;
+
+        }
+        // const output = fs.createWriteStream('./stdout.log');
+        // const errorOutput = fs.createWriteStream('./stderr.log');
+        // const logger = new Console(output, errorOutput);
+        //
+        //
+        // logger.log(JSON.stringify(req.user));
+        console.info("status of the user --> " + status);
+        // console.info("status of the user --> " + status);
+        // res.send(userID);
+        res.send(status).end();
+        // res.send(userID);
+
+
+    });
+
+    // init:configureRoutes,
+    // errorHandler: errorHandler
 };
 
-function configureRoutes(app){
+function configureRoutes(app, passport){
+    console.log("in configureRoutes");
 
     /*app.get("/api/user",UserController.show);
     app.get("/api/patient",PatientController.show);*/
-    app.use(express.static(__dirname + '/../client'));
+    app.post("/login", passport.authenticate("local",{
+        successRedirect:"/#/home",
+        failureRedirect:"/#/login",
+        failureFlash : true
+    }));
 
 }
 
@@ -25,4 +59,4 @@ function errorHandler(app){
     app.use(function (err, req, res, next) {
         res.status(500).sendFile(path.join(CLIENT_FOLDER + '/app/errors/500.html'));
     });
-};
+}

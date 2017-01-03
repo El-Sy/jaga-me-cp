@@ -17,20 +17,21 @@ var database = new Sequelize(
     }
 );
 
-var UserModel = require('./api/user/user.model')(database);
-var PatientModel = require('./api/patient/patient.model')(database);
-var AppointmentModel = require('./api/appointment/appointment.model')(database);
-var PaymentModel  = require('./api/payment/payment.model')(database);
+var UserModel = require('./api/user/user.model.js')(database);
+// var PatientModel = require('./api/patient/patient.model.js')(database);
+// var AppointmentModel = require('./api/appointment/appointment.model.js')(database);
+// var PaymentModel  = require('./api/payment/payment.model.js')(database);
 
-database.sync()
+database.sync({force: config.seed})
 .then(function(){
-    console.log("DB in sync")
+    console.log("DB in sync");
+    require("./seed")();
 });
 
 module.exports = {
-  User: UserModel,
-    Patient: PatientModel,
-    Appointment : AppointmentModel,
-    Payment: PaymentModel
+  User: UserModel
+    // Patient: PatientModel,
+    // Appointment : AppointmentModel,
+    // Payment: PaymentModel
 
 };
