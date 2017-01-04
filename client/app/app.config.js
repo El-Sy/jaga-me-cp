@@ -8,8 +8,11 @@
     function jagameCPConfig($stateProvider,$urlRouterProvider){
 
         $stateProvider
+
             .state('login',{
                 url:'/login',
+
+
                 views:{
                     "nav":{
                         templateUrl:"app/home/navigation.html"
@@ -24,6 +27,7 @@
 
             })
             .state('home',{
+
                 url:'/home',
                 views:{
                     "nav":{
@@ -38,10 +42,12 @@
 
                 },
                 controller : 'homeCtrl',
-                controllerAs : 'ctrl'
+                controllerAs : 'ctrl',
+
 
             })
             .state('appointments',{
+
                 url:'/appointments',
                 views:{
                     "nav":{
@@ -57,7 +63,9 @@
 
             })
             .state('patient',{
+
                 url:'/patient',
+
                 views:{
                     "nav":{
                         templateUrl:"app/home/navigation.html"
@@ -72,7 +80,9 @@
 
             })
             .state('payments',{
+
                 url:'/payments',
+
                 views:{
                     "nav":{
                         templateUrl:"app/home/navigation.html"
@@ -88,7 +98,9 @@
             })
 
             .state('user',{
+
                 url:'/user',
+
                 views:{
                     "nav":{
                         templateUrl:"app/home/navigation.html"
@@ -103,8 +115,10 @@
 
             })
 
-    .state('signup',{
-            url:'/register',
+            .state('signup',{
+
+        url:'/register',
+
             views:{
                 "nav":{
                     templateUrl:"app/home/navigation.html"
@@ -123,4 +137,36 @@
     }
 
 
+
+
 })();
+
+// (function(){
+//     angular
+//         .module("jagameCP")
+//         .run(['$rootScope', '$state', '$stateParams', 'AuthFactory',
+//             function($rootScope, $state, $stateParams, AuthFactory) {
+//                 $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
+//                     $rootScope.toState = toState;
+//                     $rootScope.toStateParams = toStateParams;
+//                     console.log("@ $stateChangeStart");
+//
+//                     AuthFactory.getUserStatus(function(result){
+//                         console.log("auth-factory: " + JSON.stringify(result));
+//                         if(result){
+//                             deferred.resolve(result.userID);
+//                             console.log("auth-factory: " + JSON.stringify(result));
+//                             _identity = result;
+//                             _authenticated = true;
+//                             deferred.resolve(_identity);
+//                             // $state.go('home',{user:result.userID});
+//                         }else{
+//                             _identity = null;
+//                             _authenticated = false;
+//                             deferred.resolve(_identity);
+//                         }
+//                     });
+//                 });
+//             }
+//         ]);
+// })();

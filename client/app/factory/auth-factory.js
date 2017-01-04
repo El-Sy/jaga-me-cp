@@ -32,7 +32,7 @@
 
                     var authResult = JSON.stringify(res);
                     if(res['data'] != ''){
-                        console.log("inside if getUserStatus: " + JSON.stringify(res));
+                        console.log("inside if getUserStatus: " + JSON.stringify(res['data']));
                         user = {
                             result: true,
                             userID: res.data.userID
@@ -41,6 +41,7 @@
                     }else{
                         user = false;
                         callback(user);
+                        $state.go("login");
                     }
                 })
                 .catch(function(err){

@@ -1,17 +1,28 @@
-<nav class="navbar navbar-default" ng-controller="homeCtrl as ctrl">
+<header class="main-header">
+    <div class="navbar-header">
+        <a class="logo" ui-sref="home">
+            Jaga~me <!--<img alt="Brand" src="...">-->
+        </a>
+        <!--<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+        <!--</a>-->
+    </div>
+
+<nav class="navbar navbar-static-top" role="navigation" ng-controller="homeCtrl as ctrl">
     <div class="container-fluid">
-
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="home">
-                Jaga~me <!--<img alt="Brand" src="...">-->
+        <div>
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
             </a>
         </div>
 
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-navbar-1">
+
+
+
+
             <ul class="nav navbar-nav">
                 <li ng-show="ctrl.isUserLogon">
                    <a ui-sref="appointments">Appointments</a>
@@ -29,8 +40,6 @@
                     <a ui-sref="user">Account</a>
                 </li>
 
-                <li ng-hide="ctrl.isUserLogon"><a ui-sref="signup">Sign Up!</a></li>
-
 
             </ul>
         </div>
@@ -42,3 +51,37 @@
 
 
 </nav>
+</header>
+
+<div class="main-sidebar">
+    <!-- Inner sidebar -->
+    <div class="sidebar ">
+        <!-- user panel (Optional) -->
+
+        <!-- Search Form (Optional) -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </span>
+            </div>
+        </form><!-- /.sidebar-form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li class="header">HEADER</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li class="active"><a href="#"><span>Link</span></a></li>
+            <li><a href="#"><span>Another Link</span></a></li>
+            <li class="treeview">
+                <a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Link in level 2</a></li>
+                </ul>
+            </li>
+        </ul><!-- /.sidebar-menu -->
+
+    </div><!-- /.sidebar -->
+</div><!-- /.main-sidebar -->

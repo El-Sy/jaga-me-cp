@@ -3,12 +3,26 @@
         .module("jagameCP")
         .controller("loginCtrl",loginCtrl);
 
-    loginCtrl.$inject = ["$state", "AuthFactory", "Flash"];
+    loginCtrl.$inject = ["$state", "AuthFactory", "Flash", "$stateParams"];
 
-    function loginCtrl($state, AuthFactory, Flash){
+    function loginCtrl($state, AuthFactory, Flash, $stateParams){
         var vm = this;
 
         vm.registerButton = registerButton;
+
+        // $scope.signin = function() {
+        //
+        //     // here, we fake authenticating and give a fake user
+        //     principal.authenticate({
+        //         name: 'Test User',
+        //         roles: ['User']
+        //     });
+        //
+        //     if ($scope.returnToState) $state.go($scope.returnToState.name, $scope.returnToStateParams);
+        //     else $state.go('home');
+        // };
+
+
 
         vm.login = function (){
             AuthFactory
@@ -26,7 +40,7 @@
                             id: 'custom-id'
                         },
                             true);
-                        $state.go("SignIn");
+                        $state.go("login");
                     }
                 }).catch(function (err) {
                 console.log("error " + JSON.stringify(err));
@@ -36,6 +50,8 @@
         function registerButton(){
             console.log("register state");
         }
+
+        console.log("stateParams @ login:" + $stateParams);
 
     }
 
