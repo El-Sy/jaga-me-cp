@@ -42,7 +42,7 @@
 
                 },
                 controller : 'homeCtrl',
-                controllerAs : 'ctrl',
+                controllerAs : 'ctrl'
 
 
             })
@@ -133,7 +133,7 @@
 
         });
 
-        $urlRouterProvider.otherwise("/login");
+        $urlRouterProvider.otherwise("/");
     }
 
 
