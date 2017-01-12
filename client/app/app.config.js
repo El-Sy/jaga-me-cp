@@ -10,7 +10,7 @@
         $stateProvider
 
             .state('login',{
-                url:'/login',
+                url:'/',
 
 
                 views:{

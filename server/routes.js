@@ -15,6 +15,8 @@ module.exports = function(app,passport){
 }));
 
     app.get("/status/user", function(req, res){
+        console.log("at status user" + JSON.stringify(req.user));
+
         var status = "";
         if(req.user){
             status = req.user.username;
@@ -46,7 +48,7 @@ function configureRoutes(app, passport){
     app.get("/api/patient",PatientController.show);*/
     app.post("/login", passport.authenticate("local",{
         successRedirect:"/#/home",
-        failureRedirect:"/#/login",
+        failureRedirect:"/#/",
         failureFlash : true
     }));
 

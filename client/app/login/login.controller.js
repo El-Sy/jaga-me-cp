@@ -22,6 +22,10 @@
         //     else $state.go('home');
         // };
 
+        vm.user= {
+            username: "admin",
+            password:"123"
+        };
 
 
         vm.login = function (){

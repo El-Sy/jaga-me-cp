@@ -30,8 +30,8 @@
                 .get('/status/user')
                 .then(function (res){
 
-                    var authResult = JSON.stringify(res);
-                    if(res['data'] != ''){
+                    // var authResult = JSON.stringify(res);
+                    if(res.status = 200){
                         console.log("inside if getUserStatus: " + JSON.stringify(res['data']));
                         user = {
                             result: true,
@@ -41,7 +41,7 @@
                     }else{
                         user = false;
                         callback(user);
-                        $state.go("login");
+                        // $state.go("login");
                     }
                 })
                 .catch(function(err){
