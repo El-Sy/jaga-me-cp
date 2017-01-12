@@ -91,11 +91,11 @@
         function logout(){
             var deferred = $q.defer();
             $http.get('/logout')
-                .success(function(data){
+                .then(function(data){
                     user = false;
                     deferred.resolve();
                 })
-                .error(function(data){
+                .catch(function(data){
                     user = false;
                     deferred.reject();
                 });
